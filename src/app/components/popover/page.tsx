@@ -21,9 +21,9 @@ export default function FeedbackPopover() {
   }, [state]);
 
   const buttonStyles =
-    "relative flex h-10 w-24 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-zinc-800 bg-transparent text-sm font-medium text-zinc-100 hover:bg-zinc-900";
+    "relative flex h-10 w-24 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-zinc-300 dark:border-zinc-800 bg-transparent text-sm font-medium text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900";
   const actionButton =
-    "relative flex h-10 w-24 bg-blue-600 cursor-pointer items-center justify-center overflow-hidden rounded-full text-sm font-medium text-zinc-100 hover:bg-blue-900";
+    "relative flex h-10 w-24 bg-blue-600 cursor-pointer items-center justify-center overflow-hidden rounded-full text-sm font-medium text-white hover:bg-blue-700 dark:hover:bg-blue-900";
 
   return (
     <div
@@ -40,11 +40,11 @@ export default function FeedbackPopover() {
             Feedback
           </motion.button>
         )}
-        {state === "expanded" && (
+        {state !== "idle" && (
           <motion.div
             layoutId="feedback"
             className="flex w-120 flex-col items-end gap-3
-              rounded-lg border border-zinc-800
+              rounded-lg border border-zinc-300 dark:border-zinc-800
               bg-transparent p-3"
           >
             <textarea
@@ -57,17 +57,32 @@ export default function FeedbackPopover() {
                 [&:focus]:ring-0 [&:focus]:shadow-none"
               id="feedback-form"
             ></textarea>
-            <button
-              disabled={feedback === ""}
-              onClick={() => {
-                if (feedback !== "") {
-                  setState("loading");
-                }
-              }}
-              className={actionButton}
-            >
-              Submit
-            </button>
+            {state === "expanded" && (
+              <button
+                disabled={feedback === ""}
+                onClick={() => {
+                  if (feedback !== "") {
+                    setState("loading");
+                  }
+                }}
+                className={actionButton}
+              >
+                Submit
+              </button>
+            )}
+            {state === "loading" && (
+              <button
+                disabled={feedback === ""}
+                onClick={() => {
+                  if (feedback !== "") {
+                    setState("loading");
+                  }
+                }}
+                className={actionButton}
+              >
+                Loading
+              </button>
+            )}
           </motion.div>
         )}
         {state === "loading" && (

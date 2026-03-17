@@ -71,13 +71,13 @@ export default function IconButton() {
             justify-center
             items-center
             flex
-            border border-zinc-800
+            border border-zinc-300 dark:border-zinc-800
             bg-transparent
            p-3
             rounded-xl
-            text-sm font-medium text-zinc-100
-            hover:bg-zinc-900 hover:text-zinc-100
-            disabled:pointer-events-none disabled:bg-zinc-900 disabled:opacity-80
+            text-sm font-medium text-zinc-900 dark:text-zinc-100
+            hover:bg-zinc-100 dark:hover:bg-zinc-900
+            disabled:pointer-events-none disabled:bg-zinc-100 dark:disabled:bg-zinc-900 disabled:opacity-80
             cursor-pointer
             active:scale-[0.95]
             "

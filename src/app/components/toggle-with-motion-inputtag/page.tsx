@@ -6,6 +6,7 @@ export default function ToggleWithMotion() {
   const [isOn, setIsOn] = useState(false);
   return (
     <div className="flex flex-col h-screen items-center justify-center gap-4">
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">CSS Only</p>
       <label className="flex gap-2 cursor-pointer">
         <input type="checkbox" className="peer sr-only" />
         <div
@@ -24,7 +25,7 @@ export default function ToggleWithMotion() {
           <div
             className="
             w-6 h-6
-            bg-zinc-200 
+            bg-white dark:bg-zinc-200
             rounded-full
             "
           ></div>
@@ -32,7 +33,7 @@ export default function ToggleWithMotion() {
         Toggle
       </label>
 
-      {/* second toggle with react and motion */}
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">Framer Motion</p>
       <motion.div
         role="switch"
         tabIndex={0}
@@ -64,7 +65,7 @@ export default function ToggleWithMotion() {
           }}
           className="
             w-6 h-6
-            bg-zinc-200 
+            bg-white dark:bg-zinc-200
             rounded-full
             "
         ></motion.div>

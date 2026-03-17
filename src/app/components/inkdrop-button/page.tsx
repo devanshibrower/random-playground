@@ -44,14 +44,14 @@ export default function InkDropButton() {
         ref={buttonRef}
         onClick={handleclick}
         className="flex justify-center items-center
-          bg-transparent rounded-full border border-zinc-800
-          w-24 h-10 text-sm font-medium text-zinc-100
-          cursor-pointer hover:bg-zinc-900 relative
+          bg-transparent rounded-full border border-zinc-300 dark:border-zinc-800
+          w-24 h-10 text-sm font-medium text-zinc-900 dark:text-zinc-100
+          cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900 relative
           overflow-hidden"
       >
         <span
           className={` absolute w-4 h-4 rounded-full
-            bg-blue-400 z-0 transition-transform
+            bg-zinc-900 dark:bg-zinc-100 z-0 transition-transform
             duration-600 ease-in-out
             ${status === "filling" ? "scale-[15]" : "scale-0"}
             `}
@@ -61,7 +61,7 @@ export default function InkDropButton() {
           }}
         ></span>
 
-        <span className="relative z-10">
+        <span className={`relative z-10 ${status !== "idle" ? "text-white dark:text-zinc-900" : ""}`}>
           {status === "idle" && "Click Me"}
           {(status === "filling" || status === "filled") &&
             "Clicked!"}

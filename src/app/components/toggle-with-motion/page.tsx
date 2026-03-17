@@ -37,7 +37,7 @@ export default function ToggleWithMotion() {
             stiffness: 350,
             damping: 35,
           }}
-          className="w-6 h-6 bg-zinc-200 rounded-full"
+          className="w-6 h-6 bg-white dark:bg-zinc-200 rounded-full"
         ></motion.div>
       </motion.div>
     </div>
